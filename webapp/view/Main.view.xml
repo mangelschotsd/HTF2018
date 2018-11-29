@@ -1,9 +1,70 @@
-<mvc:View controllerName="com.flexso.HackTheFuture.controller.Main" xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table"
-	xmlns:unified="sap.ui.unified" xmlns="sap.m" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table" xmlns:unified="sap.ui.unified" xmlns="sap.m" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="com.flexso.HackTheFuture.controller.Main">
 	<App>
 		<pages>
 			<Page title="Hack the future 2018">
 				<content>
+					
+				<Table noDataText="Drop column list items here and columns in the area above" id="tableArtifact">
+					
+				    <items>
+					
+				        <ColumnListItem type="Active" id="item0">
+					
+				            <cells>
+					
+				                <Text text="Row 1 Cell 1" id="text0"/>
+					
+				                <Text text="Row 1 Cell 2" id="text1"/>
+					
+				                <Text text="Row 1 Cell 3" id="text2"/>
+				                
+		                	</cells>
+					
+				        </ColumnListItem>
+					
+				    </items>
+					
+				    <columns>
+					
+				        <Column id="column0">
+					
+				            <header>
+					
+				                <Label text="Artifact Id" id="label0"/>
+					
+				            </header>
+					
+				        </Column>
+					
+				        <Column id="column1">
+					
+				            <header>
+					
+				                <Label text="Longitude" id="label1"/>
+					
+				            </header>
+					
+				        </Column>
+					
+				        <Column id="column2">
+					
+				            <header>
+					
+				                <Label text="Latitude" id="label2"/>
+					
+				            </header>
+					
+				        </Column>
+					
+				        <Column id="column3">
+					
+				            <header>
+					
+				                <Label text="Signal" id="label3"/>
+					
+				            </header>
+					
+				        </Column></columns></Table>
 					
 				</content>
 				<footer>
