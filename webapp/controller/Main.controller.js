@@ -19,20 +19,29 @@ sap.ui.define([
 			// url to get the artifact signals of your device : 
 			// '/devices/XX/measures'  -> XX = your device id
 			var url = "/devices/98/measures?skip=0&top=100";
-			var oModel = new sap.ui.model.json.JSONModel();
-        	jQuery.ajax({
-	            type : "GET",
-	            contentType : "application/json",
-	            url : url,
-	            dataType : "json",
-	            async: false, 
-	            success : function(data,textStatus, jqXHR) {
-	                oModel.setData({modelData : data});
-            	}
-        		
-        	});
+        	
+        	var promise = new Promise(function (resolve, reject) {
+				$.ajax({
+					type: "GET",
+					url: url,
+					headers: "",
+					success: function (data) {
+						resolve(data);
+					},
+					error: function (Error) {
+						reject((Error));
+					},
+					contentType: false,
+					async: true,
+					data: null,
+					cache: false,
+					processData: false
+				});
+			});
 
-        	return oModel; 
+			return Promise.resolve(promise).then(function (result) {
+				return result;
+			});
 		},
 
 		groupData: function () {
