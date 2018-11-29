@@ -24,6 +24,22 @@
 					
 				        </ColumnListItem>
 					
+				        <ColumnListItem type="Active" id="item1">
+					
+				            <cells>
+					
+				                <Text text="Artifact_user_7" id="text3"/>
+					
+				                <Text text="124" id="text4"/>
+					
+				                <Text text="23" id="text5"/>
+				                
+				                <Button xmlns="sap.m" text="Send artifact signal to ML" id="button1"/>
+					
+		                	</cells>
+					
+				        </ColumnListItem>
+					
 				    </items>
 					
 				    <columns>
