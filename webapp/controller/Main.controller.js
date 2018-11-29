@@ -51,17 +51,24 @@ sap.ui.define([
 				var timestamp = data[value].timestamp.toString();
 				if (Object.keys(obj).indexOf(timestamp) == -1) {
 					obj[timestamp] = new Object();
+					obj[timestamp].timestamp = timestamp;
 				}
 				var measure = Object.keys(data[value].measure)[0];
-				//alert(measure + " = " + data[value]["measure"][measure]);
 				obj[timestamp][measure] = data[value]["measure"][measure];
 			});
 			var json = JSON.stringify(obj);
-			console.log(json);
-			return json;
+			var array = [];
+			Object.keys(obj).forEach(function(key) {
+    			array.push(obj[key]);
+			});
+			console.log(array);
+			var oModel = new sap.ui.model.json.JSONModel();
+			oModel.setData({modelData : array}); 
+			this.getView().setModel(oModel, "artifacts");
 		},
 
 		triggerML: function (oEvent) {
+			
 		},
 
 		getMlAuthToken: function () {
