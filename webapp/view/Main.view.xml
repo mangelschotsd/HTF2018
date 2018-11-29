@@ -6,7 +6,7 @@
 					
 				<Table noDataText="Drop column list items here and columns in the area above" id="tableArtifact">
 					
-				    <items>
+				    <items> 
 					
 				        <ColumnListItem type="Active" id="item0">
 					
