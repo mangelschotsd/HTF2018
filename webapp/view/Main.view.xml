@@ -12,12 +12,14 @@
 					
 				            <cells>
 					
-				                <Text text="Row 1 Cell 1" id="text0"/>
+				                <Text text="Artifact_user_7" id="text0"/>
 					
-				                <Text text="Row 1 Cell 2" id="text1"/>
+				                <Text text="-12" id="text1"/>
 					
-				                <Text text="Row 1 Cell 3" id="text2"/>
+				                <Text text="-39" id="text2"/>
 				                
+				                <Button xmlns="sap.m" text="Send artifact signal to ML" id="button0"/>
+					
 		                	</cells>
 					
 				        </ColumnListItem>
