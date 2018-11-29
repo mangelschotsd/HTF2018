@@ -8,9 +8,9 @@ sap.ui.define([
 	'sap/m/StandardListItem'
 ], function (Controller, MessageBox, JSONModel, Button, Dialog, List, StandardListItem) {
 	"use strict";
-
+	
 	return Controller.extend("com.flexso.HackTheFuture.controller.Main", {
-
+		
 		onInit: function () {
 			this.getIotData();
 		},
@@ -18,6 +18,21 @@ sap.ui.define([
 		getIotData: function () {
 			// url to get the artifact signals of your device : 
 			// '/devices/XX/measures'  -> XX = your device id
+			var url = "/devices/98/measures?skip=0&top=100";
+			var oModel = new sap.ui.model.json.JSONModel();
+        	jQuery.ajax({
+	            type : "GET",
+	            contentType : "application/json",
+	            url : url,
+	            dataType : "json",
+	            async: false, 
+	            success : function(data,textStatus, jqXHR) {
+	                oModel.setData({modelData : data});
+            	}
+        		
+        	});
+
+        	return oModel; 
 		},
 
 		groupData: function () {
