@@ -18,15 +18,15 @@ sap.ui.define([
 		getIotData: function () {
 			// url to get the artifact signals of your device : 
 			// '/devices/XX/measures'  -> XX = your device id
+			var me = this;
 			var url = "/devices/98/measures?skip=0&top=100";
-        	
         	var promise = new Promise(function (resolve, reject) {
 				$.ajax({
 					type: "GET",
 					url: url,
 					headers: "",
 					success: function (data) {
-						resolve(data);
+						resolve(me.groupData(data));
 					},
 					error: function (Error) {
 						reject((Error));
@@ -38,13 +38,27 @@ sap.ui.define([
 					processData: false
 				});
 			});
-
-			return Promise.resolve(promise).then(function (result) {
-				return result;
+			Promise.resolve(promise).then(function (result) {
+				// var oModel = new sap.ui.model.json.JSONModel();
+				// oModel.setData({modelData : result}); 
+				// this.getView().setModel(oModel);
 			});
 		},
 
-		groupData: function () {
+		groupData: function (data) {
+			var obj = new Object();
+			$.each(data, function(value, index, array){
+				var timestamp = data[value].timestamp.toString();
+				if (Object.keys(obj).indexOf(timestamp) == -1) {
+					obj[timestamp] = new Object();
+				}
+				var measure = Object.keys(data[value].measure)[0];
+				//alert(measure + " = " + data[value]["measure"][measure]);
+				obj[timestamp][measure] = data[value]["measure"][measure];
+			});
+			var json = JSON.stringify(obj);
+			console.log(json);
+			return json;
 		},
 
 		triggerML: function (oEvent) {
