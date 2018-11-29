@@ -45,6 +45,8 @@ sap.ui.define([
 		},
 
 		groupData: function () {
+			
+			
 		},
 
 		triggerML: function (oEvent) {
