@@ -17,7 +17,9 @@ sap.ui.define([
 
 		getIotData: function () {
 			// url to get the artifact signals of your device : 
-			// '/devices/XX/measures'  -> XX = your device id
+			// '/devices/XX/measures'  -> XX = your device id Artifact_user_7
+			// '/devices/Artifact_user_7/measures'
+			
 		},
 
 		groupData: function () {
