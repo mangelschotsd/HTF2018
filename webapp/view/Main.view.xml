@@ -1,74 +1,52 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table" xmlns:unified="sap.ui.unified" xmlns="sap.m" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="com.flexso.HackTheFuture.controller.Main">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table" xmlns:unified="sap.ui.unified" xmlns="sap.m"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="com.flexso.HackTheFuture.controller.Main">
 	<App>
 		<pages>
 			<Page title="Hack the future 2018">
 				<content>
-					
-				<Table noDataText="Drop column list items here and columns in the area above" id="tableArtifact">
-					
-				    <items> 
-					
-				        <ColumnListItem type="Active" id="item0">
-					
-				            <cells>
-					
-				                <Text text="Artifact_user_7" id="text0"/>
-					
-				                <Text text="-12" id="text1"/>
-					
-				                <Text text="-39" id="text2"/>
-				                
-				                <Button xmlns="sap.m" text="Send artifact signal to ML" id="button0"/>
-					
-		                	</cells>
-					
-				        </ColumnListItem>
-					
-				    </items>
-					
-				    <columns>
-					
-				        <Column id="column0">
-					
-				            <header>
-					
-				                <Label text="Artifact Id" id="label0"/>
-					
-				            </header>
-					
-				        </Column>
-					
-				        <Column id="column1">
-					
-				            <header>
-					
-				                <Label text="Longitude" id="label1"/>
-					
-				            </header>
-					
-				        </Column>
-					
-				        <Column id="column2">
-					
-				            <header>
-					
-				                <Label text="Latitude" id="label2"/>
-					
-				            </header>
-					
-				        </Column>
-					
-				        <Column id="column3">
-					
-				            <header>
-					
-				                <Label text="Signal" id="label3"/>
-					
-				            </header>
-					
-				        </Column></columns></Table>
-					
+					<Table noDataText="Drop column list items here and columns in the area above" id="table0" items="{artifacts>/modelData}">
+						<columns>
+							<Column id="column0">
+								<header>
+									<Label text="Artifact ID" id="label0"/>
+								</header>
+							</Column>
+							<Column id="column1">
+								<header>
+									<Label text="Longitude" id="label1"/>
+								</header>
+							</Column>
+							<Column id="column2">
+								<header>
+									<Label text="Latitude" id="label2"/>
+								</header>
+							</Column>
+							<Column id="column3">
+								<header>
+									<Label text="Preview" id="label3"/>
+								</header>
+							</Column>
+							<Column id="column4">
+								<header>
+									<Label text="Signal" id="label4"/>
+								</header>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{artifacts>artifact_id}"/>
+									<Text text="{artifacts>longitude}"/>
+									<Text text="{artifacts>latitude}"/>
+									<Image src="{artifacts>preview}"></Image>
+									<Button text="Send artifact signal to ML" app:coords="{artifacts>artifact_signal}" press="triggerML"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
 				</content>
+				
 				<footer>
 					<Toolbar width="100%">
 						<content>
